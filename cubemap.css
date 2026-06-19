@@ -1,0 +1,49 @@
+.cubemap-container {
+  container-type: size;
+  overflow: hidden;
+  perspective: 100vmax;
+}
+
+.cubemap {
+  transform-origin: 50vmax 50vmax;
+  transform-style: preserve-3d;
+  translate: calc(50cqw - 50vmax) calc(50cqh - 50vmax) 100vmax;
+  scale: calc(1cqmax / 1vmax);
+
+  * {
+    position: absolute;
+    width: 100vmax;
+    height: 100vmax;
+    border-image: 1 fill / 1vmax / 1vmax;
+  }
+
+  :nth-child(1) {
+    border-image-source: var(--front);
+    transform: translateZ(-50vmax);
+  }
+
+  :nth-child(2) {
+    border-image-source: var(--right);
+    transform: rotateY(-90deg) translateZ(-50vmax);
+  }
+
+  :nth-child(3) {
+    border-image-source: var(--back);
+    transform: rotateY(180deg) translateZ(-50vmax);
+  }
+
+  :nth-child(4) {
+    border-image-source: var(--left);
+    transform: rotateY(90deg) translateZ(-50vmax);
+  }
+
+  :nth-child(5) {
+    border-image-source: var(--up);
+    transform: rotateX(-90deg) translateZ(-50vmax);
+  }
+
+  :nth-child(6) {
+    border-image-source: var(--down);
+    transform: rotateX(90deg) translateZ(-50vmax);
+  }
+}

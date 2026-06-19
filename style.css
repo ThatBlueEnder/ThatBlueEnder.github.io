@@ -1,0 +1,26 @@
+@import "cubemap.css";
+
+#minecraft-panorama {
+  position: fixed;
+  inset: 0;
+
+  .cubemap {
+    --front: url("minecraft-panorama/0.webp");
+    --right: url("minecraft-panorama/1.webp");
+    --back: url("minecraft-panorama/2.webp");
+    --left: url("minecraft-panorama/3.webp");
+    --up: url("minecraft-panorama/4.webp");
+    --down: url("minecraft-panorama/5.webp");
+    animation: minecraft-panorama 120s linear infinite;
+  }
+}
+
+@keyframes minecraft-panorama {
+  0% {
+    transform: scale(.25);
+  }
+
+  100% {
+    transform: scale(.25) rotateX(1turn) rotateY(1turn) rotateZ(1turn);
+  }
+}
